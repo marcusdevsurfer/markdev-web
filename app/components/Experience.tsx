@@ -1,21 +1,16 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Experience = () => {
     const { t } = useLanguage();
-    const [isVisible, setIsVisible] = useState(false);
     const [activeRole, setActiveRole] = useState('apexon');
 
     const experienceData = Object.entries(t.experience.roles).map(([id, role]) => ({
         id,
         ...role
     }));
-
-    useEffect(() => {
-        setIsVisible(true);
-    }, []);
 
     return (
         <section id="experience" className="py-15 md:py-25 px-4 bg-white">

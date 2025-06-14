@@ -41,7 +41,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     const value = {
         language,
         setLanguage: handleSetLanguage,
-        t: translations[language] as Translations
+        t: translations[language]
     };
 
     return (
