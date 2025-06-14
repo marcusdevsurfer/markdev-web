@@ -35,7 +35,6 @@ export const translations = {
                 tools: {
                     title: 'Tools & Methodologies',
                     items: [
-                        'AWS Cloud Practitioner Certificate',
                         'Maven',
                         'Git',
                         'Kibana',
@@ -80,8 +79,8 @@ export const translations = {
                 },
                 ibm: {
                     title: 'Java Developer',
-                    company: 'IBM',
-                    period: 'Sept 2023 – Present',
+                    company: 'IBM (USAA)',
+                    period: 'Sept 2023 – July 2024',
                     details: [
                         'Collaboration in a Scrum environment, participating in ceremonies like Sprint Planning, Daily Scrum, and Sprint Review.',
                         'Member of an international team with all communication in English.',
@@ -93,7 +92,7 @@ export const translations = {
                 },
                 hcl_dev: {
                     title: 'Software Engineer (Internal Project)',
-                    company: 'HCLTECH',
+                    company: 'HCLTECH (Verizon)',
                     period: 'May 2023 – Sept 2023',
                     details: [
                         'Worked in a SCRUM environment for agile progress.',
@@ -106,7 +105,7 @@ export const translations = {
                 },
                 hcl_support: {
                     title: 'Software Engineer (E-commerce Support)',
-                    company: 'HCLTECH',
+                    company: 'HCLTECH (Verizon)',
                     period: 'Jan 2022 – May 2023',
                     details: [
                         'Worked in an agile, multicultural team (India, US).',
@@ -209,7 +208,6 @@ export const translations = {
                 tools: {
                     title: 'Herramientas & Metodologías',
                     items: [
-                        'Certificado AWS Cloud Practitioner',
                         'Maven',
                         'Git',
                         'Kibana',
@@ -254,8 +252,8 @@ export const translations = {
                 },
                 ibm: {
                     title: 'Desarrollador Java',
-                    company: 'IBM',
-                    period: 'Sept 2023 – Presente',
+                    company: 'IBM (USAA)',
+                    period: 'Sept 2023 – Julio 2024',
                     details: [
                         'Colaboración en un entorno Scrum, participando en ceremonias como Sprint Planning, Daily Scrum y Sprint Review.',
                         'Miembro de un equipo internacional con toda la comunicación en inglés.',
@@ -267,7 +265,7 @@ export const translations = {
                 },
                 hcl_dev: {
                     title: 'Ingeniero de Software (Proyecto Interno)',
-                    company: 'HCLTECH',
+                    company: 'HCLTECH (Verizon)',
                     period: 'Mayo 2023 – Sept 2023',
                     details: [
                         'Trabajo en un entorno SCRUM para progreso ágil.',
@@ -280,7 +278,7 @@ export const translations = {
                 },
                 hcl_support: {
                     title: 'Ingeniero de Software (Soporte E-commerce)',
-                    company: 'HCLTECH',
+                    company: 'HCLTECH (Verizon)',
                     period: 'Ene 2022 – Mayo 2023',
                     details: [
                         'Trabajo en un equipo ágil y multicultural (India, US).',
