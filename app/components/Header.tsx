@@ -2,11 +2,14 @@
 
 import { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { LanguageSwitcher } from './LanguageSwitcher';
 
 export const Header = () => {
-    const { t } = useLanguage();
+    const { t, language, setLanguage } = useLanguage();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleLanguage = () => {
+        setLanguage(language === 'en' ? 'es' : 'en');
+    };
 
     return (
         <header className="bg-white border-b border-gray-200 sticky top-0 z-50">
@@ -39,7 +42,13 @@ export const Header = () => {
                                 {item.label}
                             </a>
                         ))}
-                        <LanguageSwitcher />
+                        <button
+                            onClick={toggleLanguage}
+                            className="flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
+                        >
+                            <span className="text-lg">{language === 'en' ? '🇲🇽' : '🇺🇸'}</span>
+                            <span className="hidden sm:inline">{language === 'en' ? 'Español' : 'English'}</span>
+                        </button>
                     </div>
                 </div>
 
@@ -57,7 +66,13 @@ export const Header = () => {
                             </a>
                         ))}
                         <div className="pt-2">
-                            <LanguageSwitcher />
+                            <button
+                                onClick={toggleLanguage}
+                                className="flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
+                            >
+                                <span className="text-lg">{language === 'en' ? '🇲🇽' : '🇺🇸'}</span>
+                                <span className="hidden sm:inline">{language === 'en' ? 'Español' : 'English'}</span>
+                            </button>
                         </div>
                     </div>
                 )}
