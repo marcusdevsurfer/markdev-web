@@ -37,6 +37,7 @@ export const Header = () => {
                             <a
                                 key={item.href}
                                 href={item.href}
+                                onClick={() => setIsMenuOpen(false)}
                                 className="text-gray-600 hover:text-black transition-colors"
                             >
                                 {item.label}
@@ -59,8 +60,8 @@ export const Header = () => {
                             <a
                                 key={item.href}
                                 href={item.href}
-                                className="block text-gray-600 hover:text-black transition-colors"
                                 onClick={() => setIsMenuOpen(false)}
+                                className="block text-gray-600 hover:text-black transition-colors"
                             >
                                 {item.label}
                             </a>
