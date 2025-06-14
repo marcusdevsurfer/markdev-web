@@ -146,18 +146,18 @@ export const translations = {
             title: 'Education',
             subtitle: 'My academic background and certifications',
             degree1: {
-                title: 'Bachelor of Science in Computer Science',
-                school: 'University of Colima',
+                title: 'Engineering in Software Management and Development',
+                school: 'Technological University of Manzanillo',
                 period: '2019 - 2023'
             },
             degree2: {
-                title: 'Associate Degree in Software Development',
-                school: 'Technical Institute of Colima',
+                title: 'Technical Career in Office Automation',
+                school: 'Center for Industrial and Service Technology Studies #84',
                 period: '2017 - 2019'
             },
             certification: {
-                title: 'Full Stack Web Development',
-                issuer: 'Meta'
+                title: 'AWS Cloud Practitioner Essentials',
+                issuer: 'AWS on 10/31/2022'
             }
         },
         footer: {
@@ -323,18 +323,18 @@ export const translations = {
             title: 'Educación',
             subtitle: 'Mi formación académica y certificaciones',
             degree1: {
-                title: 'Licenciatura en Ciencias de la Computación',
-                school: 'Universidad de Colima',
+                title: 'Ingenieria en Gestion y Desarrollo de Software',
+                school: 'Universidad Tecnologica de Manzanillo',
                 period: '2019 - 2023'
             },
             degree2: {
-                title: 'Técnico Superior en Desarrollo de Software',
-                school: 'Instituto Tecnológico de Colima',
+                title: 'Carrera Tecnica en Ofimatica',
+                school: 'Centro de Estudios Tecnologicos Industriales y de Servicios #84',
                 period: '2017 - 2019'
             },
             certification: {
-                title: 'Desarrollo Web Full Stack',
-                issuer: 'Meta'
+                title: 'AWS Cloud Practitioner Essentials',
+                issuer: 'AWS en 10/31/2022'
             }
         },
         footer: {
