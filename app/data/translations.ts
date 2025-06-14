@@ -165,11 +165,11 @@ export const translations = {
             social: [
                 {
                     label: 'LinkedIn',
-                    href: 'https://www.linkedin.com/in/marcus-gonzalez-/'
+                    href: 'https://www.linkedin.com/in/marcusgonzalez1399/'
                 },
                 {
                     label: 'GitHub',
-                    href: 'https://github.com/marcusgonzalez'
+                    href: 'https://github.com/marcusdevsurfer'
                 }
             ]
         }
@@ -338,11 +338,11 @@ export const translations = {
             social: [
                 {
                     label: 'LinkedIn',
-                    href: 'https://www.linkedin.com/in/marcus-gonzalez-/'
+                    href: 'https://www.linkedin.com/in/marcusgonzalez1399/'
                 },
                 {
                     label: 'GitHub',
-                    href: 'https://github.com/marcusgonzalez'
+                    href: 'https://github.com/marcusdevsurfer'
                 }
             ]
         }
