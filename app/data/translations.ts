@@ -1,6 +1,6 @@
 import { Translations } from '../types/translations';
 
-export const translations = {
+export const translations: Record<string, Translations> = {
     en: {
         nav: [
             { label: 'Summary', href: '#summary' },

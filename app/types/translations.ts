@@ -1,58 +1,58 @@
 export type TranslationKey = 'en' | 'es';
 
 export interface Translations {
-    nav: Array<{ label: string; href: string }>;
+    nav: ReadonlyArray<{ readonly label: string; readonly href: string }>;
     summary: {
-        title: string;
-        content: string;
+        readonly title: string;
+        readonly content: string;
     };
     skills: {
-        title: string;
-        subtitle: string;
-        categories: {
-            programming: { title: string; items: string[] };
-            frameworks: { title: string; items: string[] };
-            webTech: { title: string; items: string[] };
-            database: { title: string; items: string[] };
-            tools: { title: string; items: string[] };
+        readonly title: string;
+        readonly subtitle: string;
+        readonly categories: {
+            readonly programming: { readonly title: string; readonly items: readonly string[] };
+            readonly frameworks: { readonly title: string; readonly items: readonly string[] };
+            readonly webTech: { readonly title: string; readonly items: readonly string[] };
+            readonly database: { readonly title: string; readonly items: readonly string[] };
+            readonly tools: { readonly title: string; readonly items: readonly string[] };
         };
     };
     experience: {
-        title: string;
-        subtitle: string;
-        roles: {
-            [key: string]: {
-                title: string;
-                company: string;
-                period: string;
-                details: string[];
+        readonly title: string;
+        readonly subtitle: string;
+        readonly roles: {
+            readonly [key: string]: {
+                readonly title: string;
+                readonly company: string;
+                readonly period: string;
+                readonly details: readonly string[];
             };
         };
     };
     education: {
-        title: string;
-        subtitle: string;
-        degree1: {
-            title: string;
-            school: string;
-            period: string;
+        readonly title: string;
+        readonly subtitle: string;
+        readonly degree1: {
+            readonly title: string;
+            readonly school: string;
+            readonly period: string;
         };
-        degree2: {
-            title: string;
-            school: string;
-            period: string;
+        readonly degree2: {
+            readonly title: string;
+            readonly school: string;
+            readonly period: string;
         };
-        certification: {
-            title: string;
-            issuer: string;
+        readonly certification: {
+            readonly title: string;
+            readonly issuer: string;
         };
     };
     footer: {
-        title: string;
-        social: Array<{ label: string; href: string }>;
+        readonly title: string;
+        readonly social: ReadonlyArray<{ readonly label: string; readonly href: string }>;
     };
     githubContributions: {
-        title: string;
-        description: string;
+        readonly title: string;
+        readonly description: string;
     };
 } 
