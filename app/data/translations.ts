@@ -172,6 +172,10 @@ export const translations = {
                     href: 'https://github.com/marcusdevsurfer'
                 }
             ]
+        },
+        githubContributions: {
+            title: 'GitHub Activity',
+            description: 'Track my coding journey and contributions in real-time'
         }
     },
     es: {
@@ -345,6 +349,10 @@ export const translations = {
                     href: 'https://github.com/marcusdevsurfer'
                 }
             ]
+        },
+        githubContributions: {
+            title: 'Actividad en GitHub',
+            description: 'Sigue mi progreso y contribuciones en tiempo real'
         }
     }
 } as const; 
