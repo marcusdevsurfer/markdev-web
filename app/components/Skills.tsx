@@ -39,14 +39,14 @@ export const Skills = () => {
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-black">{t.skills.title}</h2>
                 <p className="mt-4 text-base md:text-lg text-gray-600">{t.skills.subtitle}</p>
             </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
                 {Object.entries(t.skills.categories).map(([key, category]) => (
-                    <div key={key} className="bg-gray-50 p-4 md:p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-200">
+                    <div key={key} className="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-200">
                         <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4">{category.title}</h3>
                         <ul className="flex flex-wrap gap-2">
                             {category.items.map((skill: string, index: number) => (
                                 <li key={index}>
-                                    <span className={`px-3 py-1 ${categoryColors[key as keyof typeof categoryColors].bg} ${categoryColors[key as keyof typeof categoryColors].hover} ${categoryColors[key as keyof typeof categoryColors].text} rounded-full text-sm font-medium transition-colors cursor-default`}>
+                                    <span className={`px-3 py-1.5 ${categoryColors[key as keyof typeof categoryColors].bg} ${categoryColors[key as keyof typeof categoryColors].hover} ${categoryColors[key as keyof typeof categoryColors].text} rounded-full text-sm font-medium transition-colors cursor-default`}>
                                         {skill}
                                     </span>
                                 </li>
