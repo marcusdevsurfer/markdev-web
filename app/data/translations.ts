@@ -10,7 +10,7 @@ export const translations = {
         ],
         summary: {
             title: 'Professional Summary',
-            content: 'Experienced software developer with a strong background in web development and a passion for creating efficient, scalable solutions. Skilled in both frontend and backend technologies, with a focus on delivering high-quality user experiences.'
+            content: 'About 6 years of experience in Software Development and Support, with a strong expertise in Java (versions 8 and 11). Proficient in developing and maintaining back-end and front-end components, designing and consuming REST APIs, and working with microservice architecture. Currently, focusing on incident management, service monitoring, and developing automation to handle routine tasks in a large financial institution. Fluently communicate in English with multicultural teams.'
         },
         skills: {
             title: 'Technical Skills',
@@ -18,23 +18,39 @@ export const translations = {
             categories: {
                 programming: {
                     title: 'Programming Languages',
-                    items: ['JavaScript', 'TypeScript', 'Python', 'Java', 'C++']
+                    items: ['Java 8 & 11', 'PHP', 'JavaScript']
                 },
                 frameworks: {
-                    title: 'Frameworks & Libraries',
-                    items: ['React', 'Next.js', 'Node.js', 'Express', 'Django']
+                    title: 'Frameworks',
+                    items: ['Spring', 'Spring Boot', 'Bootstrap']
                 },
                 webTech: {
-                    title: 'Web Technologies',
-                    items: ['HTML5', 'CSS3', 'Tailwind CSS', 'REST APIs', 'GraphQL']
+                    title: 'Web Technologies & API',
+                    items: ['HTML/CSS', 'jQuery', 'React fundamentals', 'REST API', 'Microservice Architecture']
                 },
                 database: {
-                    title: 'Databases',
-                    items: ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis']
+                    title: 'Database & Testing',
+                    items: ['MySQL', 'Snowflake', 'JUnit', 'Mockito', 'Jacoco']
                 },
                 tools: {
-                    title: 'Tools & Platforms',
-                    items: ['Git', 'Docker', 'AWS', 'CI/CD', 'Jira']
+                    title: 'Tools & Methodologies',
+                    items: [
+                        'AWS Cloud Practitioner Certificate',
+                        'Maven',
+                        'Git',
+                        'Kibana',
+                        'Jira',
+                        'Docker fundamentals',
+                        'PagerDuty',
+                        'Splunk',
+                        'Confluence',
+                        'Grafana',
+                        'DataDog',
+                        'Appian (Designer)',
+                        'ServiceNow',
+                        'Microsoft Teams',
+                        'Outlook'
+                    ]
                 }
             }
         },
@@ -168,7 +184,7 @@ export const translations = {
         ],
         summary: {
             title: 'Resumen Profesional',
-            content: 'Desarrollador de software con amplia experiencia en desarrollo web y pasión por crear soluciones eficientes y escalables. Experto en tecnologías frontend y backend, con enfoque en ofrecer experiencias de usuario de alta calidad.'
+            content: 'Cerca de 6 años de experiencia en Desarrollo y Soporte de Software, con un fuerte dominio en Java (versiones 8 y 11). Experto en el desarrollo y mantenimiento de componentes back-end y front-end, diseño y consumo de APIs REST, y trabajo con arquitectura de microservicios. Actualmente, enfocado en la gestión de incidentes, monitoreo de servicios y desarrollo de automatización para manejar tareas rutinarias en una gran institución financiera. Comunicación fluida en inglés con equipos multiculturales.'
         },
         skills: {
             title: 'Habilidades Técnicas',
@@ -176,23 +192,39 @@ export const translations = {
             categories: {
                 programming: {
                     title: 'Lenguajes de Programación',
-                    items: ['JavaScript', 'TypeScript', 'Python', 'Java', 'C++']
+                    items: ['Java 8 & 11', 'PHP', 'JavaScript']
                 },
                 frameworks: {
-                    title: 'Frameworks y Bibliotecas',
-                    items: ['React', 'Next.js', 'Node.js', 'Express', 'Django']
+                    title: 'Frameworks',
+                    items: ['Spring', 'Spring Boot', 'Bootstrap']
                 },
                 webTech: {
-                    title: 'Tecnologías Web',
-                    items: ['HTML5', 'CSS3', 'Tailwind CSS', 'REST APIs', 'GraphQL']
+                    title: 'Tecnologías Web & API',
+                    items: ['HTML/CSS', 'jQuery', 'React fundamentals', 'REST API', 'Arquitectura de Microservicios']
                 },
                 database: {
-                    title: 'Bases de Datos',
-                    items: ['MongoDB', 'PostgreSQL', 'MySQL', 'Redis']
+                    title: 'Base de Datos & Testing',
+                    items: ['MySQL', 'Snowflake', 'JUnit', 'Mockito', 'Jacoco']
                 },
                 tools: {
-                    title: 'Herramientas y Plataformas',
-                    items: ['Git', 'Docker', 'AWS', 'CI/CD', 'Jira']
+                    title: 'Herramientas & Metodologías',
+                    items: [
+                        'Certificado AWS Cloud Practitioner',
+                        'Maven',
+                        'Git',
+                        'Kibana',
+                        'Jira',
+                        'Docker fundamentals',
+                        'PagerDuty',
+                        'Splunk',
+                        'Confluence',
+                        'Grafana',
+                        'DataDog',
+                        'Appian (Designer)',
+                        'ServiceNow',
+                        'Microsoft Teams',
+                        'Outlook'
+                    ]
                 }
             }
         },
