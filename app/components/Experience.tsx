@@ -18,7 +18,7 @@ export const Experience = () => {
     }, []);
 
     return (
-        <section id="experience" className="py-12 md:py-20 px-4 bg-white">
+        <section id="experience" className="py-12 md:py-15 px-4 bg-white">
             <div className="text-center mb-12">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-black">{t.experience.title}</h2>
                 <p className="mt-4 text-base md:text-lg text-gray-600">{t.experience.subtitle}</p>
@@ -44,7 +44,7 @@ export const Experience = () => {
                 </div>
 
                 {/* Contenido de la experiencia */}
-                <div className="relative min-h-[500px] md:min-h-[600px]">
+                <div className="relative min-h-[300px] md:min-h-[400px]">
                     {experienceData.map((role) => (
                         <div
                             key={role.id}
