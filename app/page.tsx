@@ -3,16 +3,25 @@
 import React, { useState, useEffect, createContext, useContext } from 'react';
 
 // Language Context
-const LanguageContext = createContext({
+const LanguageContext = createContext<{
+    language: string;
+    setLanguage: (lang: string) => void;
+    toggleLanguage: () => void;
+}>({
     language: 'en',
-    setLanguage: (lang: string) => {},
+    setLanguage: () => {},
+    toggleLanguage: () => {}
 });
 
 const LanguageProvider = ({ children }: { children: React.ReactNode }) => {
     const [language, setLanguage] = useState('en');
 
+    const toggleLanguage = () => {
+        setLanguage(language === 'en' ? 'es' : 'en');
+    };
+
     return (
-        <LanguageContext.Provider value={{ language, setLanguage }}>
+        <LanguageContext.Provider value={{ language, setLanguage, toggleLanguage }}>
             {children}
         </LanguageContext.Provider>
     );
@@ -22,14 +31,36 @@ const useLanguage = () => useContext(LanguageContext);
 
 // Language Switcher Component
 const LanguageSwitcher = () => {
-    const { language, setLanguage } = useLanguage();
+    const { language, toggleLanguage } = useLanguage();
 
     return (
         <button
-            onClick={() => setLanguage(language === 'en' ? 'es' : 'en')}
-            className="px-3 py-1 rounded-md text-sm font-medium text-gray-700 hover:text-indigo-600 hover:bg-gray-50 transition-colors"
+            onClick={toggleLanguage}
+            className="group flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-indigo-100 to-indigo-50 text-indigo-700 hover:from-indigo-200 hover:to-indigo-100 transition-all duration-300 font-medium shadow-sm hover:shadow-md"
         >
-            {language === 'en' ? 'ES' : 'EN'}
+            {language === 'en' ? (
+                <>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transform group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24">
+                        <rect x="2" y="4" width="20" height="16" fill="#1B4D3E"/>
+                        <rect x="2" y="4" width="8" height="16" fill="#1B4D3E"/>
+                        <rect x="16" y="4" width="6" height="16" fill="#E63946"/>
+                        <rect x="10" y="4" width="6" height="16" fill="#F1FAEE"/>
+                        <circle cx="12.5" cy="12" r="2"/>
+                    </svg>
+                    <span className="group-hover:translate-x-0.5 transition-transform duration-300">ES</span>
+                </>
+            ) : (
+                <>
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 transform group-hover:scale-110 transition-transform duration-300" viewBox="0 0 24 24">
+                        <rect x="2" y="4" width="20" height="16" fill="#0A2472"/>
+                        <path d="M2 12h20" stroke="#F8F9FA" strokeWidth="2.5"/>
+                        <path d="M12 4v16" stroke="#F8F9FA" strokeWidth="2.5"/>
+                        <path d="M2 4l20 16" stroke="#E63946" strokeWidth="2.5"/>
+                        <path d="M22 4l-20 16" stroke="#E63946" strokeWidth="2.5"/>
+                    </svg>
+                    <span className="group-hover:translate-x-0.5 transition-transform duration-300">EN</span>
+                </>
+            )}
         </button>
     );
 };
