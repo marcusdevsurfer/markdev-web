@@ -34,7 +34,7 @@ export const Skills = () => {
     };
 
     return (
-        <section id="skills" className="py-12 md:py-16 px-4">
+        <section id="skills" className="py-15 md:py-25 px-4">
             <div className="text-center mb-8 md:mb-12">
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-tight text-black">{t.skills.title}</h2>
                 <p className="mt-4 text-base md:text-lg text-gray-600">{t.skills.subtitle}</p>
