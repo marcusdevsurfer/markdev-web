@@ -466,68 +466,24 @@ type TranslationKey = keyof typeof translations;
 type TranslationValue = (typeof translations)[TranslationKey];
 
 const Header = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { language } = useLanguage();
   const t = translations[language as TranslationKey] as Translations;
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const navLinks = [
-    { name: t.nav.summary, href: '#summary' },
-    { name: t.nav.experience, href: '#experience' },
-    { name: t.nav.skills, href: '#skills' },
-    { name: t.nav.education, href: '#education' },
-  ];
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll('main section');
-      const navElements = document.querySelectorAll('.nav-link');
-      let currentActive = '';
-
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (window.scrollY >= sectionTop - 100 && window.scrollY < sectionTop + sectionHeight - 100) {
-          currentActive = section.id;
-        }
-      });
-
-      navElements.forEach(link => {
-        link.classList.remove('font-semibold', 'text-emerald-600'); // Eliminar verde fuerte anterior
-        if (link.href.includes(currentActive)) {
-          link.classList.add('font-semibold', 'text-emerald-600'); // Añadir acento verde
-        }
-      });
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    handleScroll(); // Llamada inicial para establecer el enlace activo al cargar
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
-    <header className="sticky top-0 z-50 bg-gray-900/80 backdrop-blur-md border-b border-blue-800">
+    <header className="bg-white border-b border-gray-200">
       <nav className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+        <div className="flex justify-between items-center">
+          <div className="text-2xl font-bold text-black">MG</div>
           <div className="flex items-center space-x-8">
-            <a href="#" className="text-2xl font-bold text-blue-400">MG</a>
-            <div className="hidden md:flex space-x-6">
-              {t.nav.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.href}
-                  className="text-gray-300 hover:text-blue-400 transition-colors"
-                >
-                  {item.label}
-                </a>
-              ))}
-            </div>
-          </div>
-          <div className="flex items-center space-x-4">
+            {t.nav.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-gray-600 hover:text-black transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
             <LanguageSwitcher />
           </div>
         </div>
@@ -541,14 +497,13 @@ const Summary = () => {
   const t = translations[language as TranslationKey] as Translations;
 
   return (
-    <section id="summary" className="mb-16 scroll-mt-24">
+    <section id="summary" className="py-20">
       <div className="text-center mb-12">
-        <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl mb-4">Marcus Ivan Gonzalez Martinez</h1>
+        <h1 className="text-4xl font-bold tracking-tight text-black sm:text-5xl mb-4">Marcus Ivan Gonzalez Martinez</h1>
       </div>
-      <div className=" text-center max-w-3xl mx-auto">
-        <h2 className="text-3xl font-bold tracking-tight text-blue-400 sm:text-4xl">{t.summary.title}</h2>
-
-        <p className="text-lg text-gray-300 leading-relaxed">{t.summary.content}</p>
+      <div className="text-center max-w-3xl mx-auto">
+        <h2 className="text-3xl font-bold tracking-tight text-gray-800 sm:text-4xl">{t.summary.title}</h2>
+        <p className="text-lg text-gray-600 leading-relaxed">{t.summary.content}</p>
       </div>
     </section>
   );
@@ -561,17 +516,17 @@ const Skills = () => {
   return (
     <section id="skills" className="mb-16 scroll-mt-24">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">{t.skills.title}</h2>
-        <p className="mt-4 text-lg text-gray-300">{t.skills.subtitle}</p>
+        <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">{t.skills.title}</h2>
+        <p className="mt-4 text-lg text-gray-600">{t.skills.subtitle}</p>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {Object.entries(t.skills.categories).map(([key, category]) => (
-          <div key={key} className="bg-gray-800/50 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-blue-800/50">
-            <h3 className="text-xl font-bold text-blue-400 mb-4">{category.title}</h3>
+          <div key={key} className="bg-gray-50 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-gray-200">
+            <h3 className="text-xl font-bold text-gray-800 mb-4">{category.title}</h3>
             <ul className="space-y-2">
               {category.items.map((skill: string, index: number) => (
-                <li key={index} className="flex items-center text-gray-300">
-                  <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                <li key={index} className="flex items-center text-gray-600">
+                  <span className="w-2 h-2 bg-gray-400 rounded-full mr-2"></span>
                   {skill}
                 </li>
               ))}
@@ -584,9 +539,9 @@ const Skills = () => {
 };
 
 const Experience = () => {
-  const [selectedJob, setSelectedJob] = useState('apexon');
   const { language } = useLanguage();
   const t = translations[language as TranslationKey] as Translations;
+  const [selectedJob, setSelectedJob] = useState('apexon');
 
   const experienceData = Object.entries(t.experience.roles).map(([id, role]) => ({
     id,
@@ -594,43 +549,45 @@ const Experience = () => {
   }));
 
   return (
-    <section id="experience" className="mb-16 scroll-mt-24">
+    <section id="experience" className="py-20">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">{t.experience.title}</h2>
-        <p className="mt-4 text-lg text-gray-300">{t.experience.subtitle}</p>
+        <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">{t.experience.title}</h2>
+        <p className="mt-4 text-lg text-gray-600">{t.experience.subtitle}</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8">
-        <div className="md:col-span-1 lg:col-span-1">
-          <div className="space-y-4">
-            {experienceData.map(job => (
-              <div
-                key={job.id}
-                className={`timeline-item p-4 rounded-lg border-2 border-blue-800/50 cursor-pointer hover:border-blue-500 hover:bg-blue-900/30 transition-all ${selectedJob === job.id ? 'active border-blue-500 bg-blue-900/50' : 'bg-gray-800/50'}`}
-                onClick={() => setSelectedJob(job.id)}
-              >
-                <p className="font-bold text-white">{job.title}</p>
-                <p className="text-sm text-gray-300">{job.company}</p>
-                <p className="text-xs text-gray-400 mt-1">{job.period}</p>
-              </div>
-            ))}
+      <div className="max-w-4xl mx-auto">
+        <div className="flex flex-col md:flex-row gap-8">
+          <div className="md:w-1/3">
+            <div className="space-y-2">
+              {experienceData.map(job => (
+                <button
+                  key={job.id}
+                  onClick={() => setSelectedJob(job.id)}
+                  className={`w-full text-left px-4 py-3 rounded-lg transition-colors ${
+                    selectedJob === job.id
+                      ? 'bg-gray-100 text-black'
+                      : 'text-gray-600 hover:bg-gray-50'
+                  }`}
+                >
+                  {job.company}
+                </button>
+              ))}
+            </div>
           </div>
-        </div>
-        <div className="md:col-span-2 lg:col-span-3">
-          <div className="bg-gray-800/50 p-6 rounded-xl shadow-md sticky top-24 min-h-[300px] border border-blue-800/50">
-            {selectedJob ? (
-              <>
-                <h3 className="text-xl font-bold text-white">{t.experience.roles[selectedJob as keyof typeof t.experience.roles].title}</h3>
-                <p className="text-md font-semibold text-blue-400">{t.experience.roles[selectedJob as keyof typeof t.experience.roles].company}</p>
-                <p className="text-sm text-gray-400 mb-4">{t.experience.roles[selectedJob as keyof typeof t.experience.roles].period}</p>
-                <ul className="space-y-2 text-gray-300 list-disc list-inside">
-                  {t.experience.roles[selectedJob as keyof typeof t.experience.roles].details.map((detail: string, index: number) => (
-                    <li key={index}>{detail}</li>
-                  ))}
-                </ul>
-              </>
-            ) : (
-              <p className="text-gray-400 text-center flex items-center justify-center h-full">Select a role from the timeline to view details here.</p>
-            )}
+          <div className="md:w-2/3">
+            <div className="bg-gray-50 p-6 rounded-xl shadow-md border border-gray-200">
+              <h3 className="text-xl font-bold text-gray-800 mb-2">
+                {t.experience.roles[selectedJob].title}
+              </h3>
+              <p className="text-gray-600 mb-4">{t.experience.roles[selectedJob].period}</p>
+              <ul className="space-y-3">
+                {t.experience.roles[selectedJob].details.map((item, index) => (
+                  <li key={index} className="flex items-start text-gray-600">
+                    <span className="w-2 h-2 bg-gray-400 rounded-full mt-2 mr-2"></span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -643,25 +600,33 @@ const Education = () => {
   const t = translations[language as TranslationKey] as Translations;
 
   return (
-    <section id="education" className="mb-16 scroll-mt-24">
+    <section id="education" className="py-20">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">{t.education.title}</h2>
-        <p className="mt-4 text-lg text-gray-300">{t.education.subtitle}</p>
+        <h2 className="text-3xl font-bold tracking-tight text-black sm:text-4xl">{t.education.title}</h2>
+        <p className="mt-4 text-lg text-gray-600">{t.education.subtitle}</p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="bg-gray-800/50 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-blue-800/50">
-          <h3 className="text-xl font-bold text-white">{t.education.degree1.title}</h3>
-          <p className="text-md font-semibold text-blue-400">{t.education.degree1.school}</p>
-          <p className="text-sm text-gray-400 mb-4">{t.education.degree1.period}</p>
-        </div>
-        <div className="bg-gray-800/50 p-6 rounded-xl shadow-md hover:shadow-lg transition-shadow border border-blue-800/50">
-          <h3 className="text-xl font-bold text-white">{t.education.degree2.title}</h3>
-          <p className="text-md font-semibold text-blue-400">{t.education.degree2.school}</p>
-          <p className="text-sm text-gray-400 mb-4">{t.education.degree2.period}</p>
-        </div>
-        <div className="md:col-span-2 bg-gray-800/50 p-6 rounded-xl shadow-md text-center hover:shadow-lg transition-shadow border border-blue-800/50">
-          <h3 className="text-xl font-bold text-white">{t.education.certification.title}</h3>
-          <p className="text-md font-semibold text-blue-400">{t.education.certification.issuer}</p>
+      <div className="max-w-4xl mx-auto">
+        <div className="space-y-8">
+          {t.education.degree1 && (
+            <div className="bg-gray-50 p-6 rounded-xl shadow-md border border-gray-200">
+              <h3 className="text-xl font-bold text-gray-800 mb-2">{t.education.degree1.title}</h3>
+              <p className="text-gray-600 mb-2">{t.education.degree1.school}</p>
+              <p className="text-gray-500">{t.education.degree1.period}</p>
+            </div>
+          )}
+          {t.education.degree2 && (
+            <div className="bg-gray-50 p-6 rounded-xl shadow-md border border-gray-200">
+              <h3 className="text-xl font-bold text-gray-800 mb-2">{t.education.degree2.title}</h3>
+              <p className="text-gray-600 mb-2">{t.education.degree2.school}</p>
+              <p className="text-gray-500">{t.education.degree2.period}</p>
+            </div>
+          )}
+          {t.education.certification && (
+            <div className="bg-gray-50 p-6 rounded-xl shadow-md border border-gray-200">
+              <h3 className="text-xl font-bold text-gray-800 mb-2">{t.education.certification.title}</h3>
+              <p className="text-gray-600 mb-2">{t.education.certification.issuer}</p>
+            </div>
+          )}
         </div>
       </div>
     </section>
@@ -673,20 +638,20 @@ const Footer = () => {
   const t = translations[language as TranslationKey] as Translations;
 
   return (
-    <footer className="bg-gray-900/80 border-t border-blue-800">
+    <footer className="bg-gray-50 border-t border-gray-200">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           <div className="text-center">
-            <h3 className="text-lg font-semibold text-blue-400 mb-4">{t.footer.contact}</h3>
+            <h3 className="text-lg font-semibold text-gray-800 mb-4">{t.footer.contact}</h3>
             <div className="space-y-2">
-              <p className="flex items-center justify-center text-gray-300">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
+              <p className="flex items-center justify-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
                 <span>Manzanillo, Colima, Mexico</span>
               </p>
-              <p className="flex items-center justify-center text-gray-300">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-blue-500" viewBox="0 0 20 20" fill="currentColor">
+              <p className="flex items-center justify-center text-gray-600">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2 text-gray-500" viewBox="0 0 20 20" fill="currentColor">
                   <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
@@ -695,22 +660,22 @@ const Footer = () => {
             </div>
           </div>
           <div className="text-center">
-            <h3 className="text-lg font-semibold text-blue-400 mb-4">{t.footer.social}</h3>
+            <h3 className="text-lg font-semibold text-gray-800 mb-4">{t.footer.social}</h3>
             <div className="flex justify-center space-x-4">
-              <a href="https://www.linkedin.com/in/marcus-gonzalez-/" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition-colors">
+              <a href="https://www.linkedin.com/in/marcus-gonzalez-/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black transition-colors">
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                  <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                 </svg>
               </a>
-              <a href="https://github.com/marcusgonzalez" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-blue-400 transition-colors">
+              <a href="https://github.com/marcusgonzalez" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black transition-colors">
                 <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                 </svg>
               </a>
             </div>
           </div>
         </div>
-        <div className="mt-8 pt-8 border-t border-blue-800/50 text-center text-gray-400">
+        <div className="mt-8 pt-8 border-t border-gray-200 text-center text-gray-500">
           <p>© 2024 Marcus Ivan Gonzalez Martinez. All rights reserved.</p>
         </div>
       </div>
@@ -721,19 +686,17 @@ const Footer = () => {
 export default function Home() {
   return (
     <LanguageProvider>
-      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
+      <div className="min-h-screen bg-white">
+        <div className="fixed inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
         <div className="relative">
-          <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
-          <div className="relative">
-            <Header />
-            <main className="container mx-auto px-4 py-8">
-              <Summary />
-              <Skills />
-              <Experience />
-              <Education />
-            </main>
-            <Footer />
-          </div>
+          <Header />
+          <main className="container mx-auto px-4 py-8">
+            <Summary />
+            <Skills />
+            <Experience />
+            <Education />
+          </main>
+          <Footer />
         </div>
       </div>
     </LanguageProvider>
