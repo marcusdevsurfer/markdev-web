@@ -21,25 +21,25 @@ export const Experience = () => {
 
             <div className="max-w-5xl mx-auto">
                 {/* Navegación de roles */}
-                <div className="flex flex-wrap justify-center gap-4 mb-8">
+                <div className="flex md:flex-wrap justify-start md:justify-center gap-2 md:gap-4 mb-8 overflow-x-auto md:overflow-x-visible pb-4 md:pb-0">
                     {experienceData.map((role) => (
                         <button
                             key={role.id}
                             onClick={() => setActiveRole(role.id)}
-                            className={`px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 flex flex-col items-center ${
+                            className={`px-3 md:px-6 py-2 md:py-3 rounded-lg transition-all duration-300 transform hover:scale-105 flex flex-col items-center min-w-[120px] md:min-w-[160px] flex-shrink-0 ${
                                 activeRole === role.id
                                     ? 'bg-gray-800 text-white shadow-lg'
                                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                             }`}
                         >
-                            <span className="font-medium">{role.company}</span>
-                            <span className="text-sm mt-1 opacity-80">{role.period}</span>
+                            <span className="font-medium text-sm md:text-base truncate w-full text-center">{role.company}</span>
+                            <span className="text-xs md:text-sm mt-1 opacity-80 truncate w-full text-center">{role.period}</span>
                         </button>
                     ))}
                 </div>
 
                 {/* Contenido de la experiencia */}
-                <div className="relative min-h-[300px] md:min-h-[400px]">
+                <div className="relative min-h-[400px] md:min-h-[500px]">
                     {experienceData.map((role) => (
                         <div
                             key={role.id}
