@@ -31,13 +31,13 @@ export const Education = () => {
                     {t.education.certification && (
                         <div className="bg-gray-50 p-4 md:p-6 rounded-xl shadow-md border border-gray-200">
                             <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-2">{t.education.certification.title}</h3>
-                            <p className="text-gray-600 mb-2">{t.education.certification.issuer}</p>
+                            <p className="text-gray-600 mb-3">{t.education.certification.issuer}</p>
                             <Image
                                 src={'/aws-certificate.jpg'}
                                 alt="AWS Certification"
                                 width={450}
                                 height={450}
-                                className="w-md h-md rounded-lg relative z-10"
+                                className="w-md h-md rounded-lg relative mx-auto z-10 mb-2"
                                 unoptimized
                             />
                         </div>
