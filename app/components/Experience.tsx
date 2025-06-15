@@ -1,16 +1,40 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Experience = () => {
     const { t } = useLanguage();
     const [activeRole, setActiveRole] = useState('apexon');
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
 
     const experienceData = Object.entries(t.experience.roles).map(([id, role]) => ({
         id,
         ...role
     }));
+
+    // Función para centrar el botón activo
+    const scrollToActiveButton = (buttonId: string) => {
+        if (scrollContainerRef.current) {
+            const container = scrollContainerRef.current;
+            const activeButton = container.querySelector(`[data-role-id="${buttonId}"]`);
+            if (activeButton) {
+                const containerWidth = container.offsetWidth;
+                const buttonLeft = (activeButton as HTMLElement).offsetLeft;
+                const buttonWidth = (activeButton as HTMLElement).offsetWidth;
+                const scrollLeft = buttonLeft - (containerWidth / 2) + (buttonWidth / 2);
+                container.scrollTo({
+                    left: scrollLeft,
+                    behavior: 'smooth'
+                });
+            }
+        }
+    };
+
+    // Efecto para centrar el botón activo cuando cambia
+    useEffect(() => {
+        scrollToActiveButton(activeRole);
+    }, [activeRole]);
 
     return (
         <section id="experience" className="py-15 md:py-25 px-4 bg-white">
@@ -21,10 +45,14 @@ export const Experience = () => {
 
             <div className="max-w-5xl mx-auto">
                 {/* Navegación de roles */}
-                <div className="flex md:flex-wrap justify-start md:justify-center gap-2 md:gap-4 mb-8 overflow-x-auto md:overflow-x-visible pb-4 md:pb-0">
+                <div 
+                    ref={scrollContainerRef}
+                    className="flex md:flex-wrap justify-start md:justify-center gap-2 md:gap-4 mb-8 overflow-x-auto md:overflow-x-visible pb-4 md:pb-0"
+                >
                     {experienceData.map((role) => (
                         <button
                             key={role.id}
+                            data-role-id={role.id}
                             onClick={() => setActiveRole(role.id)}
                             className={`px-3 md:px-6 py-2 md:py-3 rounded-lg transition-all duration-300 transform hover:scale-105 flex flex-col items-center min-w-[120px] md:min-w-[160px] flex-shrink-0 ${
                                 activeRole === role.id
