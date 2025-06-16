@@ -34,9 +34,9 @@ export const Header = () => {
                     <div className="block md:hidden ">
                         <button
                             onClick={toggleLanguage}
-                            className="flex items-center space-x-2 px-3 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
+                            className="flex items-center space-x-2 gap-1 px-3 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
                         >
-                            <span className="text-lg">{language === 'en' ? '🇲🇽' : '🇺🇸'}</span>
+                            <span className="text-lg m-0">{language === 'en' ? '🇲🇽' : '🇺🇸'}</span>
                             <span className="hidden sm:inline">{language === 'en' ? 'Español' : 'English'}</span>
                         </button>
                     </div>
